@@ -1,0 +1,38 @@
+#using Families2Persons.*
+#using AttrCondDefLibrary.*
+
+#rule Father2Male #with Families2Persons
+
+#source { 
+	fr:Families.FamilyRegister {
+		-families->f
+	}
+	f:Families.Family {
+		-father->fm
+	}
+	fm:Families.FamilyMember
+}
+
+#target {
+	pr:Persons.PersonRegister {
+		-persons->m
+	}
+	m:Persons.Male
+}
+
+#correspondence {
+	++ f2m:Father2Male {
+		#src->fr
+		#trg->pr
+	}
+	
+	fm2m:FamilyMember2Male {
+		#src->fm
+		#trg->m
+	}
+}
+
+#attributeConditions {
+	eq_string(fm.name, m.name)
+	eq_string(f.name, m.surname)
+}

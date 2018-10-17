@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="ASCII"?>
+<tgg:TripleGraphGrammarFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tgg="http://www.moflon.org/ide/tgg/mosl/TGG">
+  <imports name="platform:/resource/Families2Persons/metamodels/Families.ecore"/>
+  <imports name="platform:/resource/Families2Persons/metamodels/Persons.ecore"/>
+  <schema name="Families2Persons">
+    <sourceTypes href="platform:/resource/Families2Persons/metamodels/Families.ecore#/"/>
+    <targetTypes href="platform:/resource/Families2Persons/metamodels/Persons.ecore#/"/>
+    <correspondenceTypes name="FamilyRegister2PersonRegister">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//PersonRegister"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FamilyMember2Person">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyMember"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//Person"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FamilyMember2Male">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyMember"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//Male"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="FamilyMember2Female">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyMember"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//Female"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Father2Male">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//PersonRegister"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Mother2Female">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//PersonRegister"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Son2Male">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//PersonRegister"/>
+    </correspondenceTypes>
+    <correspondenceTypes name="Daughter2Female">
+      <source href="platform:/resource/Families2Persons/metamodels/Families.ecore#//FamilyRegister"/>
+      <target href="platform:/resource/Families2Persons/metamodels/Persons.ecore#//PersonRegister"/>
+    </correspondenceTypes>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|18"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|23"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|6"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|18"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|23"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|18"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|23"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|18"/>
+    <attributeCondDefs href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|23"/>
+  </schema>
+  <rules name="Daughter2Female">
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|0"/>
+    <sourcePatterns name="fr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|1"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|2"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|3"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|4"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|5"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|6"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|7"/>
+    </sourcePatterns>
+    <targetPatterns name="pr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|8"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|9"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|10"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="fe">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|11"/>
+    </targetPatterns>
+    <correspondencePatterns name="d2fe">
+      <op value="++"/>
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|12"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|13"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|14"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="fm2fe">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|15"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|16"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|17"/>
+    </correspondencePatterns>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|18"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.2">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|20"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|22"/>
+      </values>
+    </attrConditions>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|23"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|25"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Daughter2Female.tgg#|27"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="FamilyMember2Female">
+    <supertypes href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Female.tgg#|0"/>
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Female.tgg#|1"/>
+    <sourcePatterns name="fm">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Female.tgg#|2"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Female.tgg#|3"/>
+    </targetPatterns>
+  </rules>
+  <rules name="FamilyMember2Male">
+    <supertypes href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Male.tgg#|0"/>
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Male.tgg#|1"/>
+    <sourcePatterns name="fm">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Male.tgg#|2"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Male.tgg#|3"/>
+    </targetPatterns>
+  </rules>
+  <rules name="FamilyMember2Person">
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|0"/>
+    <sourcePatterns name="fm">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|1"/>
+    </sourcePatterns>
+    <targetPatterns name="p">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|2"/>
+    </targetPatterns>
+    <correspondencePatterns name="fm2p">
+      <op value="++"/>
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|3"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|4"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|5"/>
+    </correspondencePatterns>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|6"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@sourcePatterns.0">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|8"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.3/@targetPatterns.0">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyMember2Person.tgg#|10"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="FamilyRegister2PersonRegister">
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyRegister2PersonRegister.tgg#|0"/>
+    <sourcePatterns name="fr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyRegister2PersonRegister.tgg#|1"/>
+    </sourcePatterns>
+    <targetPatterns name="pr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyRegister2PersonRegister.tgg#|2"/>
+    </targetPatterns>
+    <correspondencePatterns name="fr2pr">
+      <op value="++"/>
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyRegister2PersonRegister.tgg#|3"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyRegister2PersonRegister.tgg#|4"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/FamilyRegister2PersonRegister.tgg#|5"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="Father2Male">
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|0"/>
+    <sourcePatterns name="fr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|1"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|2"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|3"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|4"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|5"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|6"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|7"/>
+    </sourcePatterns>
+    <targetPatterns name="pr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|8"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|9"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|10"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="m">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|11"/>
+    </targetPatterns>
+    <correspondencePatterns name="f2m">
+      <op value="++"/>
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|12"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|13"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|14"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="fm2m">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|15"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|16"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|17"/>
+    </correspondencePatterns>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|18"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@sourcePatterns.2">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|20"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|22"/>
+      </values>
+    </attrConditions>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|23"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|25"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.5/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Father2Male.tgg#|27"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Mother2Female">
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|0"/>
+    <sourcePatterns name="fr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|1"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|2"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|3"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|4"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|5"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|6"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|7"/>
+    </sourcePatterns>
+    <targetPatterns name="pr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|8"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|9"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|10"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="fe">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|11"/>
+    </targetPatterns>
+    <correspondencePatterns name="m2fe">
+      <op value="++"/>
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|12"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|13"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|14"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="fm2fe">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|15"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|16"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|17"/>
+    </correspondencePatterns>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|18"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@sourcePatterns.2">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|20"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|22"/>
+      </values>
+    </attrConditions>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|23"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|25"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.6/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Mother2Female.tgg#|27"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="Son2Male">
+    <schema href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|0"/>
+    <sourcePatterns name="fr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|1"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|2"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|3"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="f">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|4"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|5"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|6"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="fm">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|7"/>
+    </sourcePatterns>
+    <targetPatterns name="pr">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|8"/>
+      <linkVariablePatterns>
+        <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|9"/>
+        <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|10"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="m">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|11"/>
+    </targetPatterns>
+    <correspondencePatterns name="s2m">
+      <op value="++"/>
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|12"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|13"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|14"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="fm2m">
+      <type href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|15"/>
+      <source href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|16"/>
+      <target href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|17"/>
+    </correspondencePatterns>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|18"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.2">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|20"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|22"/>
+      </values>
+    </attrConditions>
+    <attrConditions>
+      <name href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|23"/>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|25"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.1">
+        <attribute href="platform:/resource/Families2Persons/src/org/emoflon/ibex/tgg/rules/Son2Male.tgg#|27"/>
+      </values>
+    </attrConditions>
+  </rules>
+</tgg:TripleGraphGrammarFile>

@@ -1,0 +1,16 @@
+@namespace(
+	uri="platform:/resource/HSM2SM/metamodels/hsm.ecore",
+	prefix="hsm")
+package HSM;
+
+class StateMachine {
+	val State [*] ownedState;	
+}
+
+class State {
+	attr EString [1] name;
+}
+
+class CompositeState extends State {
+	
+}

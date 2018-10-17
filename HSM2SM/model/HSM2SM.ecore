@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="HSM2SM" nsURI="platform:/resource/HSM2SM/model/HSM2SM.ecore"
+    nsPrefix="HSM2SM">
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine2StateMachine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OwnedState2ownedState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OwnedCompositeState2ownedState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="State2State">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeState2State">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InitialState2InitialState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//InitialState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//InitialState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OwnedInitialState2OwnedInitialState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FinalState2FinalState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//FinalState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//FinalState"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OwnedFinalState2OwnedFinalState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+  </eClassifiers>
+</ecore:EPackage>

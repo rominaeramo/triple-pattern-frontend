@@ -1,0 +1,121 @@
+-- @path TGG=/TGG2ASP/metamodels/TGG.ecore
+-- @path ASP=/TGG2ASP/metamodels/ASP.ecore
+
+module TGG2ASP;
+create OUT : ASP from IN : TGG;
+
+---------------------------------------------------------------------------------------------------
+--                                            HELPERS
+---------------------------------------------------------------------------------------------------
+
+--- ASP model root element
+helper def: transformation: ASP!Transformation = ASP!Transformation;
+
+--- Maps of generated elements for reuse
+helper def: literals: Map (String, ASP!Literal) = Map {};
+helper def: metanodes: Map (String, ASP!Node) = Map {};
+
+--- Generate an element identifier string used to store the element in a map
+helper def: toKey(s : Sequence(String)) : String = s->collect(e|e+'_').sum().regexReplaceAll('_$','');
+
+--- Generate a key from an Element
+helper context ASP!Element def: getKey() : String = thisModule.toKey(self.literals->collect(l|l.name));
+
+--- Add the prefix 'x_'
+helper context String def: normalize() : String = if (self.startsWith('x_')) then self else 'x_' + self endif;
+
+--- Get the name of the package (metamodel) from an EClass
+helper def: getMMfromMC(mc: MOF!EClass): MOF!EPackage = mc.getEPackage().name;
+
+--- Return a Literal by this name
+helper def: getLiteral(name : String) : ASP!Literal =
+    if (thisModule.literals->get(name).oclIsUndefined())
+        then thisModule.newLiteral(name)
+        else thisModule.literals->get(name)
+endif;
+
+--- Return a Metanode with this literals
+helper def: getMetanode(mm : String, mc : String) : ASP!Metanode =
+    if (thisModule.metanodes->get(thisModule.toKey(Sequence{mm, mc})).oclIsUndefined())
+        then thisModule.newMetanode(mm, mc)
+        else thisModule.metanodes->get(thisModule.toKey(Sequence{mm, mc}))
+endif;
+
+
+---------------------------------------------------------------------------------------------------
+--                                          CALLED RULES
+---------------------------------------------------------------------------------------------------
+
+--- Create a new Literal
+rule newLiteral(name : String) {
+    to
+    	t : ASP!Literal (
+    	    name <- name,
+    	    transformation <- thisModule.transformation
+    	)
+    do {
+        thisModule.literals <- thisModule.literals->including(name, t);
+        t;
+    }
+}
+
+--- Create a new Metanode
+rule newMetanode(mm : String, mc : String) {
+    using { key : String = thisModule.toKey(Sequence{mm, mc}); }
+    to
+    	t : ASP!Metanode (
+    	    name <- 'metanode:' + key,
+    	    literals <- thisModule.getLiteral(mm.normalize()),
+    	    literals <- thisModule.getLiteral(mc.normalize()),
+    	    transformation <- thisModule.transformation
+    	)
+    do {
+        thisModule.metanodes <- thisModule.metanodes->including(key, t);
+        t;
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------
+--                                          MATCHED RULES
+---------------------------------------------------------------------------------------------------
+
+rule TGGFile2Transformation {
+	from
+		s : TGG!TripleGraphGrammarFile
+	to
+		t : ASP!Transformation
+	do { thisModule.transformation <- t; }
+}
+
+rule Rule2Relation {
+	from
+		s : TGG!Rule
+	using {
+		leftPattern : MOF!EClass = s.sourcePatterns.at(1).type;
+		rightPattern : MOF!EClass = s.targetPatterns.at(1).type;
+		sourceMM : String = thisModule.getMMfromMC(leftPattern);
+		targetMM : String = thisModule.getMMfromMC(rightPattern);
+		sourceMC : String = leftPattern.name;
+		targetMC : String = rightPattern.name;
+	}
+	to
+		t : ASP!Relation (
+			id <- 'node2node:' + s.name,
+			name <- s.name,
+			type <- 'bidirectional',
+			patterns <- left,
+			patterns <- right
+		),
+		left : ASP!LeftPattern (
+    	    name <- sourceMM + ':' + sourceMC,
+    	    type <- 'node',
+    	    element <- thisModule.getMetanode(sourceMM, sourceMC)
+    	),
+    	right : ASP!RightPattern (
+    	    name <- targetMM + ':' + targetMC,
+    	    type <- 'node',
+    	    element <- thisModule.getMetanode(targetMM, targetMC)
+		)
+	do { thisModule.transformation.relations <- t; }
+}

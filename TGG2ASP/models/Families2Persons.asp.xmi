@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ASP:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ASP="http://jtl.univaq.it/asp">
+  <elements xsi:type="ASP:Literal" name="x_Families"/>
+  <elements xsi:type="ASP:Literal" name="x_Family"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:Families_Family" literals="//@elements.0 //@elements.1"/>
+  <elements xsi:type="ASP:Literal" name="x_Persons"/>
+  <elements xsi:type="ASP:Literal" name="x_Female"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:Persons_Female" literals="//@elements.3 //@elements.4"/>
+  <elements xsi:type="ASP:Literal" name="x_FamilyMember"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:Families_FamilyMember" literals="//@elements.0 //@elements.6"/>
+  <elements xsi:type="ASP:Literal" name="x_Male"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:Persons_Male" literals="//@elements.3 //@elements.8"/>
+  <elements xsi:type="ASP:Literal" name="x_FamilyRegister"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:Families_FamilyRegister" literals="//@elements.0 //@elements.10"/>
+  <elements xsi:type="ASP:Literal" name="x_PersonRegister"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:Persons_PersonRegister" literals="//@elements.3 //@elements.12"/>
+  <relations id="node2node:Daughter2Female" name="Daughter2Female" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.2" name="Families:Family"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.5" name="Persons:Female"/>
+  </relations>
+  <relations id="node2node:FamilyMember2Female" name="FamilyMember2Female" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.7" name="Families:FamilyMember"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.5" name="Persons:Female"/>
+  </relations>
+  <relations id="node2node:FamilyMember2Male" name="FamilyMember2Male" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.7" name="Families:FamilyMember"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.9" name="Persons:Male"/>
+  </relations>
+  <relations id="node2node:FamilyRegister2PersonRegister" name="FamilyRegister2PersonRegister" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.11" name="Families:FamilyRegister"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.13" name="Persons:PersonRegister"/>
+  </relations>
+  <relations id="node2node:Father2Male" name="Father2Male" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.2" name="Families:Family"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.9" name="Persons:Male"/>
+  </relations>
+  <relations id="node2node:Mother2Female" name="Mother2Female" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.2" name="Families:Family"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.5" name="Persons:Female"/>
+  </relations>
+  <relations id="node2node:Son2Male" name="Son2Male" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.2" name="Families:Family"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.9" name="Persons:Male"/>
+  </relations>
+</ASP:Transformation>

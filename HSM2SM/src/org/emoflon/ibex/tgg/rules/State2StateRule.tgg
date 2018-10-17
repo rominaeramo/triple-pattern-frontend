@@ -1,0 +1,23 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule State2StateRule #with HSM2SM
+
+#source { 
+	hs:HSM.State 	
+}
+
+#target {
+	s:SM.State
+}
+
+#correspondence {
+	++ hs2s:State2State {
+		#src->hs
+		#trg->s
+	}
+}
+
+#attributeConditions {
+	eq_string(hs.name, s.name)
+}

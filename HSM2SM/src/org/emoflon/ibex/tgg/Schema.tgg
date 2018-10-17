@@ -1,0 +1,61 @@
+// Add imports here
+#import "platform:/resource/HSM2SM/metamodels/hsm.ecore"
+#import "platform:/resource/HSM2SM/metamodels/sm.ecore"
+
+#schema HSM2SM
+	
+#source {
+	HSM
+}
+
+#target { 
+	SM
+} 
+
+#correspondence {
+	StateMachine2StateMachine {
+		#src->HSM.StateMachine
+		#trg->SM.StateMachine
+	}
+	
+	OwnedState2ownedState {
+		#src->HSM.StateMachine
+		#trg->SM.StateMachine
+	}
+	
+	OwnedCompositeState2ownedState {
+		#src->HSM.StateMachine
+		#trg->SM.StateMachine
+	}
+	
+	State2State {
+		#src->HSM.State
+		#trg->SM.State
+	}
+	
+	CompositeState2State {
+		#src->HSM.CompositeState
+		#trg->SM.State
+	}	
+	
+	InitialState2InitialState {
+		#src->HSM.InitialState
+		#trg->SM.InitialState
+	}
+	
+	OwnedInitialState2OwnedInitialState {
+		#src->HSM.StateMachine
+		#trg->SM.StateMachine
+	}
+	
+	FinalState2FinalState {
+		#src->HSM.FinalState
+		#trg->SM.FinalState
+	}
+	
+	OwnedFinalState2OwnedFinalState {
+		#src->HSM.StateMachine
+		#trg->SM.StateMachine
+	}
+}
+

@@ -1,0 +1,36 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule OwnedFinalState2OwnedFinalStateRule #with HSM2SM
+
+#source { 
+	hm:HSM.StateMachine	{
+		-ownedState->hs
+	}
+	
+	hs:HSM.FinalState
+}
+
+#target {
+	m:SM.StateMachine {
+		-ownedState->s
+	}
+	
+	s:SM.FinalState
+}
+
+#correspondence {
+	++ hofs2ofs:OwnedFinalState2OwnedFinalState {
+		#src->hm
+		#trg->m
+	}
+	
+	hfs2fs:FinalState2FinalState {
+		#src->hs
+		#trg->s
+	}	
+}
+
+#attributeConditions {
+	
+}

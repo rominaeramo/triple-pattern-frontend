@@ -1,0 +1,20 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule FinalState2FinalStateRule #extends State2StateRule #with HSM2SM
+
+#source { 
+	hs:HSM.FinalState 	
+}
+
+#target {
+	s:SM.FinalState
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}

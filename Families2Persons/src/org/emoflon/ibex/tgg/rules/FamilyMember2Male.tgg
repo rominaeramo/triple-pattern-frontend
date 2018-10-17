@@ -1,0 +1,20 @@
+#using Families2Persons.*
+#using AttrCondDefLibrary.*
+
+#rule FamilyMember2Male #extends FamilyMember2Person #with Families2Persons
+
+#source { 
+	fm:Families.FamilyMember
+}
+
+#target {
+	p:Persons.Male
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+	
+}

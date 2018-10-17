@@ -1,0 +1,24 @@
+#using Families2Persons.*
+#using AttrCondDefLibrary.*
+
+#rule FamilyRegister2PersonRegister #with Families2Persons
+
+#source { 
+	fr:Families.FamilyRegister
+}
+
+#target {
+	pr:Persons.PersonRegister
+}
+
+#correspondence {
+	++ fr2pr:FamilyRegister2PersonRegister {
+		#src->fr
+		#trg->pr
+	}
+	
+}
+
+#attributeConditions {
+	
+}

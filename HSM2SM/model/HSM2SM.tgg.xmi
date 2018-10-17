@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ASCII"?>
+<language:TGG xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:language="platform:/plugin/org.emoflon.ibex.tgg.core.language/model/Language.ecore" name="HSM2SM">
+  <src href="platform:/resource/HSM2SM/metamodels/hsm.ecore#/"/>
+  <trg href="platform:/resource/HSM2SM/metamodels/sm.ecore#/"/>
+  <corr href="platform:/resource/HSM2SM/model/HSM2SM.ecore#/"/>
+  <rules name="CompositeState2StateRule">
+    <nodes name="hs" incomingCorrsSource="//@rules.0/@nodes.2">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
+    </nodes>
+    <nodes name="s" domainType="TRG" incomingCorrsTarget="//@rules.0/@nodes.2">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hs2s" domainType="CORR" bindingType="CREATE" source="//@rules.0/@nodes.0" target="//@rules.0/@nodes.1">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//CompositeState2State"/>
+    </nodes>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.0/@attributeConditionLibrary/@parameterValues.0 //@rules.0/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.0/@nodes.0">
+        <attribute href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.0/@nodes.1">
+        <attribute href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="FinalState2FinalStateRule" refines="//@rules.7">
+    <nodes name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//FinalState"/>
+    </nodes>
+    <nodes name="s" domainType="TRG">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//FinalState"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="InitialState2InitialStateRule" refines="//@rules.7">
+    <nodes name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//InitialState"/>
+    </nodes>
+    <nodes name="s" domainType="TRG">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//InitialState"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="OwnedCompositeState2ownedStateRule">
+    <nodes name="hm" outgoingEdges="//@rules.3/@edges.0" incomingCorrsSource="//@rules.3/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="hs" incomingEdges="//@rules.3/@edges.0" incomingCorrsSource="//@rules.3/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
+    </nodes>
+    <nodes name="m" domainType="TRG" outgoingEdges="//@rules.3/@edges.1" incomingCorrsTarget="//@rules.3/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="s" domainType="TRG" incomingEdges="//@rules.3/@edges.1" incomingCorrsTarget="//@rules.3/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hm2m" domainType="CORR" bindingType="CREATE" source="//@rules.3/@nodes.0" target="//@rules.3/@nodes.2">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//OwnedCompositeState2ownedState"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hm2m1" domainType="CORR" source="//@rules.3/@nodes.1" target="//@rules.3/@nodes.3">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//CompositeState2State"/>
+    </nodes>
+    <edges name="hm__ownedState__hs_eMoflonEdge" srcNode="//@rules.3/@nodes.0" trgNode="//@rules.3/@nodes.1">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <edges name="m__ownedState__s_eMoflonEdge" domainType="TRG" srcNode="//@rules.3/@nodes.2" trgNode="//@rules.3/@nodes.3">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="OwnedFinalState2OwnedFinalStateRule">
+    <nodes name="hm" outgoingEdges="//@rules.4/@edges.0" incomingCorrsSource="//@rules.4/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="hs" incomingEdges="//@rules.4/@edges.0" incomingCorrsSource="//@rules.4/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//FinalState"/>
+    </nodes>
+    <nodes name="m" domainType="TRG" outgoingEdges="//@rules.4/@edges.1" incomingCorrsTarget="//@rules.4/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="s" domainType="TRG" incomingEdges="//@rules.4/@edges.1" incomingCorrsTarget="//@rules.4/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//FinalState"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hofs2ofs" domainType="CORR" bindingType="CREATE" source="//@rules.4/@nodes.0" target="//@rules.4/@nodes.2">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//OwnedFinalState2OwnedFinalState"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hfs2fs" domainType="CORR" source="//@rules.4/@nodes.1" target="//@rules.4/@nodes.3">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//FinalState2FinalState"/>
+    </nodes>
+    <edges name="hm__ownedState__hs_eMoflonEdge" srcNode="//@rules.4/@nodes.0" trgNode="//@rules.4/@nodes.1">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <edges name="m__ownedState__s_eMoflonEdge" domainType="TRG" srcNode="//@rules.4/@nodes.2" trgNode="//@rules.4/@nodes.3">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="OwnedInitialState2OwnedInitialStateRule">
+    <nodes name="hm" outgoingEdges="//@rules.5/@edges.0" incomingCorrsSource="//@rules.5/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="hs" incomingEdges="//@rules.5/@edges.0" incomingCorrsSource="//@rules.5/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//InitialState"/>
+    </nodes>
+    <nodes name="m" domainType="TRG" outgoingEdges="//@rules.5/@edges.1" incomingCorrsTarget="//@rules.5/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="s" domainType="TRG" incomingEdges="//@rules.5/@edges.1" incomingCorrsTarget="//@rules.5/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//InitialState"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hois2ois" domainType="CORR" bindingType="CREATE" source="//@rules.5/@nodes.0" target="//@rules.5/@nodes.2">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//OwnedInitialState2OwnedInitialState"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="his2is" domainType="CORR" source="//@rules.5/@nodes.1" target="//@rules.5/@nodes.3">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//InitialState2InitialState"/>
+    </nodes>
+    <edges name="hm__ownedState__hs_eMoflonEdge" srcNode="//@rules.5/@nodes.0" trgNode="//@rules.5/@nodes.1">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <edges name="m__ownedState__s_eMoflonEdge" domainType="TRG" srcNode="//@rules.5/@nodes.2" trgNode="//@rules.5/@nodes.3">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="OwnedState2ownedStateRule">
+    <nodes name="hm" outgoingEdges="//@rules.6/@edges.0" incomingCorrsSource="//@rules.6/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="hs" incomingEdges="//@rules.6/@edges.0" incomingCorrsSource="//@rules.6/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
+    </nodes>
+    <nodes name="m" domainType="TRG" outgoingEdges="//@rules.6/@edges.1" incomingCorrsTarget="//@rules.6/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="s" domainType="TRG" incomingEdges="//@rules.6/@edges.1" incomingCorrsTarget="//@rules.6/@nodes.5">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hm2m" domainType="CORR" bindingType="CREATE" source="//@rules.6/@nodes.0" target="//@rules.6/@nodes.2">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//OwnedState2ownedState"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hm2m1" domainType="CORR" source="//@rules.6/@nodes.1" target="//@rules.6/@nodes.3">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//State2State"/>
+    </nodes>
+    <edges name="hm__ownedState__hs_eMoflonEdge" srcNode="//@rules.6/@nodes.0" trgNode="//@rules.6/@nodes.1">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <edges name="m__ownedState__s_eMoflonEdge" domainType="TRG" srcNode="//@rules.6/@nodes.2" trgNode="//@rules.6/@nodes.3">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedState"/>
+    </edges>
+    <attributeConditionLibrary/>
+  </rules>
+  <rules name="State2StateRule">
+    <nodes name="hs" incomingCorrsSource="//@rules.7/@nodes.2">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
+    </nodes>
+    <nodes name="s" domainType="TRG" incomingCorrsTarget="//@rules.7/@nodes.2">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hs2s" domainType="CORR" bindingType="CREATE" source="//@rules.7/@nodes.0" target="//@rules.7/@nodes.1">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//State2State"/>
+    </nodes>
+    <attributeConditionLibrary>
+      <tggAttributeConstraints definition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0" parameters="//@rules.7/@attributeConditionLibrary/@parameterValues.0 //@rules.7/@attributeConditionLibrary/@parameterValues.1"/>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.0" objectVar="//@rules.7/@nodes.0">
+        <attribute href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State/name"/>
+      </parameterValues>
+      <parameterValues xsi:type="language:TGGAttributeExpression" parameterDefinition="//@attributeConstraintDefinitionLibrary/@tggAttributeConstraintDefinitions.0/@parameterDefinitions.1" objectVar="//@rules.7/@nodes.1">
+        <attribute href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State/name"/>
+      </parameterValues>
+    </attributeConditionLibrary>
+  </rules>
+  <rules name="StateMachine2StateMachineRule">
+    <nodes name="hm" incomingCorrsSource="//@rules.8/@nodes.2 //@rules.8/@nodes.3 //@rules.8/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes name="m" domainType="TRG" incomingCorrsTarget="//@rules.8/@nodes.2 //@rules.8/@nodes.3 //@rules.8/@nodes.4">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hm2m" domainType="CORR" bindingType="CREATE" source="//@rules.8/@nodes.0" target="//@rules.8/@nodes.1">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//StateMachine2StateMachine"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hm2m1" domainType="CORR" source="//@rules.8/@nodes.0" target="//@rules.8/@nodes.1">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//OwnedState2ownedState"/>
+    </nodes>
+    <nodes xsi:type="language:TGGRuleCorr" name="hm2m2" domainType="CORR" source="//@rules.8/@nodes.0" target="//@rules.8/@nodes.1">
+      <type href="platform:/resource/HSM2SM/model/HSM2SM.ecore#//OwnedCompositeState2ownedState"/>
+    </nodes>
+    <attributeConditionLibrary/>
+  </rules>
+  <attributeConstraintDefinitionLibrary>
+    <tggAttributeConstraintDefinitions name="eq_string" userDefined="false">
+      <parameterDefinitions name="a">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <parameterDefinitions name="b">
+        <type href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameterDefinitions>
+      <syncAdornments>
+        <value>B</value>
+        <value>B</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>B</value>
+        <value>F</value>
+      </syncAdornments>
+      <syncAdornments>
+        <value>F</value>
+        <value>B</value>
+      </syncAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>B</value>
+        <value>F</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>B</value>
+      </genAdornments>
+      <genAdornments>
+        <value>F</value>
+        <value>F</value>
+      </genAdornments>
+    </tggAttributeConstraintDefinitions>
+  </attributeConstraintDefinitionLibrary>
+</language:TGG>

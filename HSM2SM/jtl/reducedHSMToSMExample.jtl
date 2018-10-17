@@ -1,0 +1,74 @@
+transformation hsm2sm(hsm : HSM, sm : SM) {
+
+	top relation StateMachine2StateMachine {
+		
+		enforce domain hsm hm : HSM::StateMachine {	
+		};
+		
+		enforce domain sm m : SM::StateMachine {
+		};
+		
+		where {
+			ownedState2ownedState(hm,m);
+			ownedCompositeState2ownedState(hm,m);			
+		}
+	}
+	
+	relation ownedState2ownedState {
+		
+		enforce domain hsm hm : HSM::StateMachine {	
+			ownedState = s : HSM::State { }
+		};
+		
+		enforce domain sm m : SM::StateMachine {
+			ownedState = s : SM::State { }
+		};
+		where {
+			State2State(s,s);
+		}
+	}
+	
+	relation ownedCompositeState2ownedState {
+		
+		enforce domain hsm hm : HSM::StateMachine {	
+			ownedState = s : HSM::CompositeState { }
+		};
+		
+		enforce domain sm m : SM::StateMachine {
+			ownedState = s : SM::State { }
+		};
+		
+		where {
+			CompositeState2State(s,s);
+		}
+	}
+	
+    relation State2State {
+		
+		varName : String;
+		
+		enforce domain hsm hs : HSM::State {
+			name = varName
+		};
+		
+		enforce domain sm s : SM::State {
+			name = varName
+		};
+		    
+	}
+	
+	relation CompositeState2State {
+    
+		varName : String;
+
+	    	enforce domain hsm hs : HSM::CompositeState {
+				name = varName
+	    	};
+	    	
+	    	enforce domain sm s : SM::State {
+				name = varName
+	    	};	
+    	}
+
+}
+    

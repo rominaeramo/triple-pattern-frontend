@@ -1,0 +1,32 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule OwnedCompositeState2ownedStateRule #with HSM2SM
+
+#source { 
+	hm:HSM.StateMachine	{
+		-ownedState->hs
+	}
+	
+	hs:HSM.CompositeState
+}
+
+#target {
+	m:SM.StateMachine {
+		-ownedState->s
+	}
+	
+	s:SM.State
+}
+
+#correspondence {
+	++ hm2m:OwnedCompositeState2ownedState {
+		#src->hm
+		#trg->m
+	}
+	
+	hm2m1:CompositeState2State {
+		#src->hs
+		#trg->s
+	}
+}

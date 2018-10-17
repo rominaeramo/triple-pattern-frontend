@@ -1,0 +1,23 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule CompositeState2StateRule #with HSM2SM
+
+#source { 
+	hs:HSM.CompositeState 	
+}
+
+#target {
+	s:SM.State
+}
+
+#correspondence {
+	++ hs2s:CompositeState2State {
+		#src->hs
+		#trg->s
+	}
+}
+
+#attributeConditions {
+	eq_string(hs.name, s.name)
+}

@@ -1,0 +1,36 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule OwnedInitialState2OwnedInitialStateRule #with HSM2SM
+
+#source { 
+	hm:HSM.StateMachine	{
+		-ownedState->hs
+	}
+	
+	hs:HSM.InitialState
+}
+
+#target {
+	m:SM.StateMachine {
+		-ownedState->s
+	}
+	
+	s:SM.InitialState
+}
+
+#correspondence {
+	++ hois2ois:OwnedInitialState2OwnedInitialState {
+		#src->hm
+		#trg->m
+	}
+	
+	his2is:InitialState2InitialState {
+		#src->hs
+		#trg->s
+	}	
+}
+
+#attributeConditions {
+	
+}

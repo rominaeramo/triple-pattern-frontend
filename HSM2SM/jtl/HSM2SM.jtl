@@ -1,0 +1,327 @@
+transformation hsm2sm(hsm : HSM, sm : SM) { 
+  
+ top relation StateMachine2StateMachine { 
+    
+   enforce domain hsm hm : HSM::StateMachine {   
+   }; 
+    
+   enforce domain sm m : SM::StateMachine { 
+   }; 
+    
+   where { 
+     ownedState2ownedState(hm,m); 
+     ownedCompositeState2ownedState(hm,m); 
+     ownedInitialState2ownedInitialState(hm,m); 
+     ownedFinalState2ownedFinalState(hm,m); 
+     ownedTransition2ownedTransition(hm,m); 
+      
+   } 
+ } 
+  
+ relation ownedState2ownedState { 
+    
+   enforce domain hsm hm : HSM::StateMachine {   
+     ownedState = s : HSM::State { } 
+   }; 
+    
+   enforce domain sm m : SM::StateMachine { 
+     ownedState = s : SM::State { } 
+   }; 
+   where { 
+     State2State(s,s); 
+   } 
+ } 
+  
+ relation ownedCompositeState2ownedState { 
+    
+   enforce domain hsm hm : HSM::StateMachine {   
+     ownedState = s : HSM::CompositeState { } 
+   }; 
+    
+   enforce domain sm m : SM::StateMachine { 
+     ownedState = s : SM::State { } 
+   }; 
+    
+   where { 
+     CompositeState2State(s,s); 
+   } 
+ } 
+  
+relation State2State { 
+    
+   varName : String; 
+    
+   enforce domain hsm hs : HSM::State { 
+     name = varName 
+   }; 
+    
+   enforce domain sm s : SM::State { 
+     name = varName 
+   }; 
+        
+ } 
+  
+ relation CompositeState2State { 
+     
+   varName : String; 
+  
+       enforce domain hsm hs : HSM::CompositeState { 
+       name = varName 
+       }; 
+        
+       enforce domain sm s : SM::State { 
+       name = varName 
+       };   
+} 
+     
+relation ownedInitialState2ownedInitialState { 
+    
+   enforce domain hsm hm : HSM::StateMachine {   
+     ownedState = s : HSM::InitialState { } 
+   }; 
+    
+   enforce domain sm m : SM::StateMachine { 
+     ownedState = s : SM::InitialState { } 
+   }; 
+    
+   where { 
+     InitialState2InitialState(s,s); 
+   } 
+ } 
+  
+ relation ownedFinalState2ownedFinalState { 
+    
+   enforce domain hsm hm : HSM::StateMachine {   
+     ownedState = s : HSM::FinalState { } 
+   }; 
+    
+   enforce domain sm m : SM::StateMachine { 
+     ownedState = s : SM::FinalState { } 
+   }; 
+    
+   where { 
+     FinalState2FinalState(s,s); 
+   } 
+ } 
+  
+relation InitialState2InitialState { 
+    
+   varName : String; 
+    
+   enforce domain hsm hs : HSM::InitialState { 
+     name = varName 
+   }; 
+    
+   enforce domain sm s : SM::InitialState { 
+     name = varName 
+   }; 
+  
+} 
+     
+relation FinalState2FinalState { 
+    
+   varName : String; 
+  
+   enforce domain hsm hs : HSM::FinalState { 
+     name = varName 
+   }; 
+    
+   enforce domain sm s : SM::FinalState { 
+     name = varName 
+   }; 
+    
+} 
+     
+     
+relation ownedTransition2ownedTransition { 
+     
+      enforce domain hsm hm : HSM::StateMachine {   
+     ownedTransition = t : HSM::Transition { } 
+   }; 
+    
+   enforce domain sm m : SM::StateMachine { 
+     ownedTransition = t : SM::Transition { } 
+   }; 
+    
+   where { 
+     Transition2Transition(t,t); 
+   } 
+     
+} 
+     
+     
+relation Transition2Transition { 
+    
+   varTrigger : String; 
+   varEffect : String; 
+    
+   enforce domain hsm ht : HSM::Transition { 
+     trigger = varTrigger, 
+     effect = varEffect 
+   }; 
+    
+   enforce domain sm t : SM::Transition { 
+     trigger = varTrigger, 
+     effect = varEffect 
+   }; 
+    
+   where { 
+     TransitionSource2TransitionSource(ht, t); 
+     TransitionTarget2TransitionTarget(ht, t); 
+     TransitionInitial2TransitionInitial(ht, t); 
+     TransitionFinal2TransitionFinal(ht, t); 
+     TransitionSourceComposite2TransitionSource(ht, t); 
+     TransitionTargetComposite2TransitionTarget(ht, t); 
+     TransitionIntoComposite2TransitionTargetComposite(ht, t); 
+     TransitionIntoComposite2TransitionSourceComposite(ht, t); 
+      
+   } 
+    
+} 
+     
+relation TransitionSource2TransitionSource { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+         source = s : HSM::State { 
+          } 
+       }; 
+        
+       enforce domain sm t : SM::Transition { 
+         source = s : SM::State { 
+         } 
+       }; 
+       when { 
+         State2State(s, s); 
+       } 
+} 
+     
+    
+relation TransitionTarget2TransitionTarget { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+      target = hs : HSM::State { 
+         } 
+       }; 
+        
+       enforce domain sm t : SM::Transition { 
+         target = s : SM::State { 
+         } 
+       }; 
+       when { 
+         State2State(hs, s); 
+       } 
+} 
+  
+   
+relation TransitionInitial2TransitionInitial { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+         source = hs : HSM::InitialState { 
+         } 
+       }; 
+        
+       enforce domain sm t : SM::Transition { 
+         source = s : SM::InitialState { 
+         } 
+       }; 
+       when { 
+         InitialState2InitialState(hs, s); 
+       } 
+} 
+     
+relation TransitionFinal2TransitionFinal { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+         target = hs : HSM::FinalState { 
+         } 
+       }; 
+        
+       enforce domain sm t : SM::Transition { 
+         target = s : SM::FinalState { 
+         } 
+       }; 
+       when { 
+         FinalState2FinalState(hs, s); 
+       }   
+} 
+     
+    
+relation TransitionSourceComposite2TransitionSource { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+         source = hcs : HSM::CompositeState { 
+         } 
+       }; 
+        
+       enforce domain sm t : SM::Transition { 
+         source = s : SM::State { 
+         } 
+       }; 
+        
+       when { 
+         CompositeState2State(hcs, s); 
+       } 
+       
+} 
+  
+relation TransitionTargetComposite2TransitionTarget { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+         target = hcs : HSM::CompositeState { 
+         } 
+       }; 
+        
+       enforce domain sm t : SM::Transition { 
+         target = s : SM::State { 
+         } 
+       }; 
+        
+       when { 
+         CompositeState2State(hcs, s); 
+       } 
+       
+} 
+  
+ relation TransitionIntoComposite2TransitionTargetComposite { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+         target = hs : HSM::State { 
+           owningCompositeState = s : HSM::CompositeState { 
+           } 
+         } 
+       }; 
+        
+       enforce domain sm t: SM::Transition { 
+         target = s : SM::State { 
+         } 
+       }; 
+        
+       when { 
+     CompositeState2State(s,s); 
+       } 
+      
+} 
+     
+relation TransitionIntoComposite2TransitionSourceComposite { 
+     
+       enforce domain hsm ht : HSM::Transition { 
+         source = hs : HSM::State { 
+           owningCompositeState = s : HSM::CompositeState { 
+           } 
+         } 
+       }; 
+        
+       enforce domain sm t: SM::Transition { 
+         source = s : SM::State { 
+         } 
+       }; 
+        
+       when { 
+     CompositeState2State(s,s); 
+       } 
+      
+} 
+} 
+     
+ 
+

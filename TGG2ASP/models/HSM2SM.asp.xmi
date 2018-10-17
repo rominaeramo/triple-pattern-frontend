@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ASP:Transformation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ASP="http://jtl.univaq.it/asp">
+  <elements xsi:type="ASP:Literal" name="x_HSM"/>
+  <elements xsi:type="ASP:Literal" name="x_CompositeState"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:HSM_CompositeState" literals="//@elements.0 //@elements.1"/>
+  <elements xsi:type="ASP:Literal" name="x_SM"/>
+  <elements xsi:type="ASP:Literal" name="x_State"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:SM_State" literals="//@elements.3 //@elements.4"/>
+  <elements xsi:type="ASP:Literal" name="x_FinalState"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:HSM_FinalState" literals="//@elements.0 //@elements.6"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:SM_FinalState" literals="//@elements.3 //@elements.6"/>
+  <elements xsi:type="ASP:Literal" name="x_InitialState"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:HSM_InitialState" literals="//@elements.0 //@elements.9"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:SM_InitialState" literals="//@elements.3 //@elements.9"/>
+  <elements xsi:type="ASP:Literal" name="x_StateMachine"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:HSM_StateMachine" literals="//@elements.0 //@elements.12"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:SM_StateMachine" literals="//@elements.3 //@elements.12"/>
+  <elements xsi:type="ASP:Metanode" name="metanode:HSM_State" literals="//@elements.0 //@elements.4"/>
+  <relations id="node2node:CompositeState2StateRule" name="CompositeState2StateRule" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.2" name="HSM:CompositeState"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.5" name="SM:State"/>
+  </relations>
+  <relations id="node2node:FinalState2FinalState" name="FinalState2FinalState" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.7" name="HSM:FinalState"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.8" name="SM:FinalState"/>
+  </relations>
+  <relations id="node2node:InitialState2InitialState" name="InitialState2InitialState" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.10" name="HSM:InitialState"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.11" name="SM:InitialState"/>
+  </relations>
+  <relations id="node2node:OwnedCompositeState2ownedStateRule" name="OwnedCompositeState2ownedStateRule" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.13" name="HSM:StateMachine"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.14" name="SM:StateMachine"/>
+  </relations>
+  <relations id="node2node:OwnedFinalState2OwnedFinalState" name="OwnedFinalState2OwnedFinalState" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.13" name="HSM:StateMachine"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.14" name="SM:StateMachine"/>
+  </relations>
+  <relations id="node2node:OwnedInitialState2OwnedInitialState" name="OwnedInitialState2OwnedInitialState" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.13" name="HSM:StateMachine"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.14" name="SM:StateMachine"/>
+  </relations>
+  <relations id="node2node:OwnedState2ownedStateRule" name="OwnedState2ownedStateRule" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.13" name="HSM:StateMachine"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.14" name="SM:StateMachine"/>
+  </relations>
+  <relations id="node2node:State2StateRule" name="State2StateRule" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.15" name="HSM:State"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.5" name="SM:State"/>
+  </relations>
+  <relations id="node2node:StateMachine2StateMachineRule" name="StateMachine2StateMachineRule" type="bidirectional">
+    <patterns xsi:type="ASP:LeftPattern" element="//@elements.13" name="HSM:StateMachine"/>
+    <patterns xsi:type="ASP:RightPattern" element="//@elements.14" name="SM:StateMachine"/>
+  </relations>
+</ASP:Transformation>

@@ -1,0 +1,23 @@
+#using Families2Persons.*
+#using AttrCondDefLibrary.*
+
+#rule FamilyMember2Person #with Families2Persons
+
+#source { 
+	fm:Families.FamilyMember
+}
+
+#target {
+	p:Persons.Person
+}
+
+#correspondence {
+	++ fm2p:FamilyMember2Person {
+		#src->fm
+		#trg->p
+	}
+}
+
+#attributeConditions {
+	eq_string(fm.name, p.name)
+}

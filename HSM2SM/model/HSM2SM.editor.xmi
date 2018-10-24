@@ -13,33 +13,25 @@
       <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
       <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
     </correspondenceTypes>
-    <correspondenceTypes name="OwnedCompositeState2ownedState">
-      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
-      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
-    </correspondenceTypes>
     <correspondenceTypes name="State2State">
       <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
       <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
     </correspondenceTypes>
-    <correspondenceTypes name="CompositeState2State">
-      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
-      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    <correspondenceTypes name="Transition2Transition">
+      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
     </correspondenceTypes>
-    <correspondenceTypes name="InitialState2InitialState">
-      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//InitialState"/>
-      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//InitialState"/>
-    </correspondenceTypes>
-    <correspondenceTypes name="OwnedInitialState2OwnedInitialState">
+    <correspondenceTypes name="OwnedTransition2ownedTransition">
       <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
       <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
     </correspondenceTypes>
-    <correspondenceTypes name="FinalState2FinalState">
-      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//FinalState"/>
-      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//FinalState"/>
+    <correspondenceTypes name="TransitionSource2TransitionSource">
+      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
     </correspondenceTypes>
-    <correspondenceTypes name="OwnedFinalState2OwnedFinalState">
-      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
-      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+    <correspondenceTypes name="TransitionTarget2TransitionTarget">
+      <source href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+      <target href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
     </correspondenceTypes>
     <attributeCondDefs name="eq_string">
       <params paramName="a">
@@ -78,16 +70,13 @@
       </allowedGenAdornments>
     </attributeCondDefs>
   </schema>
-  <rules name="CompositeState2StateRule" schema="//@schema">
+  <rules name="CompositeState2StateRule" supertypes="//@rules.8" schema="//@schema">
     <sourcePatterns name="hs">
       <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
     </sourcePatterns>
     <targetPatterns name="s">
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
     </targetPatterns>
-    <correspondencePatterns name="hs2s" type="//@schema/@correspondenceTypes.4" source="//@rules.0/@sourcePatterns.0" target="//@rules.0/@targetPatterns.0">
-      <op value="++"/>
-    </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
       <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.0/@sourcePatterns.0">
         <attribute href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State/name"/>
@@ -97,7 +86,7 @@
       </values>
     </attrConditions>
   </rules>
-  <rules name="FinalState2FinalStateRule" supertypes="//@rules.7" schema="//@schema">
+  <rules name="FinalState2FinalStateRule" supertypes="//@rules.8" schema="//@schema">
     <sourcePatterns name="hs">
       <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//FinalState"/>
     </sourcePatterns>
@@ -105,7 +94,7 @@
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//FinalState"/>
     </targetPatterns>
   </rules>
-  <rules name="InitialState2InitialStateRule" supertypes="//@rules.7" schema="//@schema">
+  <rules name="InitialState2InitialStateRule" supertypes="//@rules.8" schema="//@schema">
     <sourcePatterns name="hs">
       <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//InitialState"/>
     </sourcePatterns>
@@ -113,77 +102,29 @@
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//InitialState"/>
     </targetPatterns>
   </rules>
-  <rules name="OwnedCompositeState2ownedStateRule" schema="//@schema">
-    <sourcePatterns name="hm">
-      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
-      <linkVariablePatterns target="//@rules.3/@sourcePatterns.1">
-        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedState"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
+  <rules name="OwnedCompositeState2ownedStateRule" supertypes="//@rules.6" schema="//@schema">
     <sourcePatterns name="hs">
       <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
     </sourcePatterns>
-    <targetPatterns name="m">
-      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
-      <linkVariablePatterns target="//@rules.3/@targetPatterns.1">
-        <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedState"/>
-      </linkVariablePatterns>
-    </targetPatterns>
     <targetPatterns name="s">
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
     </targetPatterns>
-    <correspondencePatterns name="hm2m" type="//@schema/@correspondenceTypes.2" source="//@rules.3/@sourcePatterns.0" target="//@rules.3/@targetPatterns.0">
-      <op value="++"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="hm2m1" type="//@schema/@correspondenceTypes.4" source="//@rules.3/@sourcePatterns.1" target="//@rules.3/@targetPatterns.1"/>
   </rules>
-  <rules name="OwnedFinalState2OwnedFinalStateRule" schema="//@schema">
-    <sourcePatterns name="hm">
-      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
-      <linkVariablePatterns target="//@rules.4/@sourcePatterns.1">
-        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedState"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
+  <rules name="OwnedFinalState2OwnedFinalStateRule" supertypes="//@rules.6" schema="//@schema">
     <sourcePatterns name="hs">
       <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//FinalState"/>
     </sourcePatterns>
-    <targetPatterns name="m">
-      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
-      <linkVariablePatterns target="//@rules.4/@targetPatterns.1">
-        <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedState"/>
-      </linkVariablePatterns>
-    </targetPatterns>
     <targetPatterns name="s">
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//FinalState"/>
     </targetPatterns>
-    <correspondencePatterns name="hofs2ofs" type="//@schema/@correspondenceTypes.8" source="//@rules.4/@sourcePatterns.0" target="//@rules.4/@targetPatterns.0">
-      <op value="++"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="hfs2fs" type="//@schema/@correspondenceTypes.7" source="//@rules.4/@sourcePatterns.1" target="//@rules.4/@targetPatterns.1"/>
   </rules>
-  <rules name="OwnedInitialState2OwnedInitialStateRule" schema="//@schema">
-    <sourcePatterns name="hm">
-      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
-      <linkVariablePatterns target="//@rules.5/@sourcePatterns.1">
-        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedState"/>
-      </linkVariablePatterns>
-    </sourcePatterns>
+  <rules name="OwnedInitialState2OwnedInitialStateRule" supertypes="//@rules.6" schema="//@schema">
     <sourcePatterns name="hs">
       <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//InitialState"/>
     </sourcePatterns>
-    <targetPatterns name="m">
-      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
-      <linkVariablePatterns target="//@rules.5/@targetPatterns.1">
-        <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedState"/>
-      </linkVariablePatterns>
-    </targetPatterns>
     <targetPatterns name="s">
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//InitialState"/>
     </targetPatterns>
-    <correspondencePatterns name="hois2ois" type="//@schema/@correspondenceTypes.6" source="//@rules.5/@sourcePatterns.0" target="//@rules.5/@targetPatterns.0">
-      <op value="++"/>
-    </correspondencePatterns>
-    <correspondencePatterns name="his2is" type="//@schema/@correspondenceTypes.5" source="//@rules.5/@sourcePatterns.1" target="//@rules.5/@targetPatterns.1"/>
   </rules>
   <rules name="OwnedState2ownedStateRule" schema="//@schema">
     <sourcePatterns name="hm">
@@ -207,7 +148,31 @@
     <correspondencePatterns name="hm2m" type="//@schema/@correspondenceTypes.1" source="//@rules.6/@sourcePatterns.0" target="//@rules.6/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
-    <correspondencePatterns name="hm2m1" type="//@schema/@correspondenceTypes.3" source="//@rules.6/@sourcePatterns.1" target="//@rules.6/@targetPatterns.1"/>
+    <correspondencePatterns name="hm2m1" type="//@schema/@correspondenceTypes.2" source="//@rules.6/@sourcePatterns.1" target="//@rules.6/@targetPatterns.1"/>
+  </rules>
+  <rules name="OwnedTransition2ownedTransitionRule" schema="//@schema">
+    <sourcePatterns name="hm">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
+      <linkVariablePatterns target="//@rules.7/@sourcePatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine/ownedTransition"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+    </sourcePatterns>
+    <targetPatterns name="m">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+      <linkVariablePatterns target="//@rules.7/@targetPatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine/ownedTransition"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="s">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
+    </targetPatterns>
+    <correspondencePatterns name="hm2m" type="//@schema/@correspondenceTypes.4" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="ht2t" type="//@schema/@correspondenceTypes.3" source="//@rules.7/@sourcePatterns.1" target="//@rules.7/@targetPatterns.1"/>
   </rules>
   <rules name="State2StateRule" schema="//@schema">
     <sourcePatterns name="hs">
@@ -216,14 +181,14 @@
     <targetPatterns name="s">
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
     </targetPatterns>
-    <correspondencePatterns name="hs2s" type="//@schema/@correspondenceTypes.3" source="//@rules.7/@sourcePatterns.0" target="//@rules.7/@targetPatterns.0">
+    <correspondencePatterns name="hs2s" type="//@schema/@correspondenceTypes.2" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
     <attrConditions name="//@schema/@attributeCondDefs.0">
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@sourcePatterns.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@sourcePatterns.0">
         <attribute href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State/name"/>
       </values>
-      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.7/@targetPatterns.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.8/@targetPatterns.0">
         <attribute href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State/name"/>
       </values>
     </attrConditions>
@@ -235,10 +200,125 @@
     <targetPatterns name="m">
       <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
     </targetPatterns>
-    <correspondencePatterns name="hm2m" type="//@schema/@correspondenceTypes.0" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0">
+    <correspondencePatterns name="hm2m" type="//@schema/@correspondenceTypes.0" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.0">
       <op value="++"/>
     </correspondencePatterns>
-    <correspondencePatterns name="hm2m1" type="//@schema/@correspondenceTypes.1" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0"/>
-    <correspondencePatterns name="hm2m2" type="//@schema/@correspondenceTypes.2" source="//@rules.8/@sourcePatterns.0" target="//@rules.8/@targetPatterns.0"/>
+    <correspondencePatterns name="hm2m1" type="//@schema/@correspondenceTypes.1" source="//@rules.9/@sourcePatterns.0" target="//@rules.9/@targetPatterns.0"/>
+    <correspondencePatterns name="hm2m2">
+      <type href="platform:/resource/HSM2SM/src/org/emoflon/ibex/tgg/rules/StateMachine2StateMachineRule.tgg#|9"/>
+      <source href="platform:/resource/HSM2SM/src/org/emoflon/ibex/tgg/rules/StateMachine2StateMachineRule.tgg#|10"/>
+      <target href="platform:/resource/HSM2SM/src/org/emoflon/ibex/tgg/rules/StateMachine2StateMachineRule.tgg#|11"/>
+    </correspondencePatterns>
+  </rules>
+  <rules name="Transition2TransitionRule" schema="//@schema">
+    <sourcePatterns name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+    </sourcePatterns>
+    <targetPatterns name="s">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
+    </targetPatterns>
+    <correspondencePatterns name="hs2s" type="//@schema/@correspondenceTypes.3" source="//@rules.10/@sourcePatterns.0" target="//@rules.10/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@sourcePatterns.0">
+        <attribute href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition/trigger"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@targetPatterns.0">
+        <attribute href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition/trigger"/>
+      </values>
+    </attrConditions>
+    <attrConditions name="//@schema/@attributeCondDefs.0">
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@sourcePatterns.0">
+        <attribute href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition/effect"/>
+      </values>
+      <values xsi:type="tgg:AttributeExpression" objectVar="//@rules.10/@targetPatterns.0">
+        <attribute href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition/effect"/>
+      </values>
+    </attrConditions>
+  </rules>
+  <rules name="TransitionNestedSource2TransitionSourceRule" supertypes="//@rules.12" schema="//@schema">
+    <sourcePatterns name="ht">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition/source"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
+      <linkVariablePatterns target="//@rules.11/@sourcePatterns.2">
+        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State/owningCompositeState"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="hcs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
+    </sourcePatterns>
+    <targetPatterns name="t">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
+      <linkVariablePatterns target="//@rules.11/@targetPatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition/source"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="s">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    </targetPatterns>
+  </rules>
+  <rules name="TransitionSource2TransitionSourceRule" schema="//@schema">
+    <sourcePatterns name="ht">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+      <linkVariablePatterns target="//@rules.12/@sourcePatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition/source"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
+    </sourcePatterns>
+    <targetPatterns name="t">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
+      <linkVariablePatterns target="//@rules.12/@targetPatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition/source"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="s">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    </targetPatterns>
+    <correspondencePatterns name="ht2t" type="//@schema/@correspondenceTypes.5" source="//@rules.12/@sourcePatterns.0" target="//@rules.12/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="hs2s" type="//@schema/@correspondenceTypes.2" source="//@rules.12/@sourcePatterns.1" target="//@rules.12/@targetPatterns.1"/>
+  </rules>
+  <rules name="TransitionSourceComposite2TransitionSourceRule" supertypes="//@rules.12" schema="//@schema">
+    <sourcePatterns name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
+    </sourcePatterns>
+  </rules>
+  <rules name="TransitionTarget2TransitionTargetRule" schema="//@schema">
+    <sourcePatterns name="ht">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+      <linkVariablePatterns target="//@rules.14/@sourcePatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition/target"/>
+      </linkVariablePatterns>
+    </sourcePatterns>
+    <sourcePatterns name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
+    </sourcePatterns>
+    <targetPatterns name="t">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
+      <linkVariablePatterns target="//@rules.14/@targetPatterns.1">
+        <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition/target"/>
+      </linkVariablePatterns>
+    </targetPatterns>
+    <targetPatterns name="s">
+      <type href="platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+    </targetPatterns>
+    <correspondencePatterns name="ht2t" type="//@schema/@correspondenceTypes.6" source="//@rules.14/@sourcePatterns.0" target="//@rules.14/@targetPatterns.0">
+      <op value="++"/>
+    </correspondencePatterns>
+    <correspondencePatterns name="hs2s" type="//@schema/@correspondenceTypes.2" source="//@rules.14/@sourcePatterns.1" target="//@rules.14/@targetPatterns.1"/>
+  </rules>
+  <rules name="TransitionTargetComposite2TransitionTargetRule" supertypes="//@rules.14" schema="//@schema">
+    <sourcePatterns name="hs">
+      <type href="platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
+    </sourcePatterns>
   </rules>
 </tgg:TripleGraphGrammarFile>

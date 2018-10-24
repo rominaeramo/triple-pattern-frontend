@@ -1,0 +1,38 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule OwnedTransition2ownedTransitionRule #with HSM2SM
+
+#source { 
+	hm:HSM.StateMachine	{
+		-ownedTransition->hs
+	}
+	
+	hs:HSM.Transition
+}
+
+#target {
+	m:SM.StateMachine {
+		-ownedTransition->s
+	}
+	
+	s:SM.Transition
+}
+
+#correspondence {
+	++ hm2m:OwnedTransition2ownedTransition {
+		#src->hm
+		#trg->m
+	}
+	
+	ht2t:Transition2Transition {
+		#src->hs
+		#trg->s
+	}
+}
+
+#attributeConditions {
+	
+}
+
+

@@ -1,0 +1,38 @@
+#using Families2Persons.*
+#using AttrCondDefLibrary.*
+
+#rule Daughter2Female #with Families2Persons
+
+#source { 
+	fr:Families.FamilyRegister {
+		-families->f
+	}
+	f:Families.Family {
+		-daughters->fm
+	}
+	fm:Families.FamilyMember
+}
+
+#target {
+	pr:Persons.PersonRegister {
+		-persons->fe
+	}
+	fe:Persons.Female
+}
+
+#correspondence {
+	++ d2fe:Daughter2Female {
+		#src->fr
+		#trg->pr
+	}
+	
+	fm2fe:FamilyMember2Female {
+		#src->fm
+		#trg->fe
+	}
+}
+
+#attributeConditions {
+	eq_string(fm.name, fe.name)
+	eq_string(f.name, fe.surname)
+}

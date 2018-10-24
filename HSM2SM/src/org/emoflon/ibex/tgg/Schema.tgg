@@ -23,39 +23,31 @@
 		#trg->SM.StateMachine
 	}
 	
-	OwnedCompositeState2ownedState {
-		#src->HSM.StateMachine
-		#trg->SM.StateMachine
-	}
-	
 	State2State {
 		#src->HSM.State
 		#trg->SM.State
 	}
-	
-	CompositeState2State {
-		#src->HSM.CompositeState
-		#trg->SM.State
-	}	
-	
-	InitialState2InitialState {
-		#src->HSM.InitialState
-		#trg->SM.InitialState
+
+	Transition2Transition {
+		#src->HSM.Transition
+		#trg->SM.Transition
 	}
 	
-	OwnedInitialState2OwnedInitialState {
+	OwnedTransition2ownedTransition {
 		#src->HSM.StateMachine
 		#trg->SM.StateMachine
 	}
 	
-	FinalState2FinalState {
-		#src->HSM.FinalState
-		#trg->SM.FinalState
+	TransitionSource2TransitionSource {
+		#src->HSM.Transition
+		#trg->SM.Transition
 	}
 	
-	OwnedFinalState2OwnedFinalState {
-		#src->HSM.StateMachine
-		#trg->SM.StateMachine
+	TransitionTarget2TransitionTarget {
+		#src->HSM.Transition
+		#trg->SM.Transition
 	}
+	
+
 }
 

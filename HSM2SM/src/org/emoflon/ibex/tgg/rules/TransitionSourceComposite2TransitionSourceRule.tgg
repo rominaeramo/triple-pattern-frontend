@@ -1,0 +1,21 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule TransitionSourceComposite2TransitionSourceRule #extends TransitionSource2TransitionSourceRule #with HSM2SM
+
+#source { 
+
+	hs: HSM.CompositeState 
+}
+
+#target {
+
+}
+
+#correspondence {
+	
+}
+
+#attributeConditions {
+
+}

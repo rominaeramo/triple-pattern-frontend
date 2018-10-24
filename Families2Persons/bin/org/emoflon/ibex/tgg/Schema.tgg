@@ -1,0 +1,59 @@
+// Add imports here
+#import "platform:/resource/Families2Persons/metamodels/Families.ecore"
+#import "platform:/resource/Families2Persons/metamodels/Persons.ecore"
+
+#schema Families2Persons
+	
+#source {
+	Families
+}
+
+#target { 
+	Persons
+} 
+
+#correspondence {
+	FamilyRegister2PersonRegister {
+		#src->Families.FamilyRegister
+		#trg->Persons.PersonRegister
+	}
+	
+	FamilyMember2Person {
+		#src->Families.FamilyMember
+		#trg->Persons.Person
+	}
+	
+	FamilyMember2Male {
+		#src->Families.FamilyMember
+		#trg->Persons.Male
+	}
+	
+	FamilyMember2Female {
+		#src->Families.FamilyMember
+		#trg->Persons.Female
+	}
+	
+	Father2Male {
+		#src->Families.FamilyRegister
+		#trg->Persons.PersonRegister
+	}	
+	
+	Mother2Female {
+		#src->Families.FamilyRegister
+		#trg->Persons.PersonRegister
+	}
+	
+	Son2Male {
+		#src->Families.FamilyRegister
+		#trg->Persons.PersonRegister
+	}	
+	
+	Daughter2Female {
+		#src->Families.FamilyRegister
+		#trg->Persons.PersonRegister
+	}
+}
+
+#attributeConditions {
+	
+}

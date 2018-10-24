@@ -10,32 +10,24 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OwnedCompositeState2ownedState">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State2State">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompositeState2State">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//CompositeState"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition2Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InitialState2InitialState">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//InitialState"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//InitialState"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OwnedInitialState2OwnedInitialState">
+  <eClassifiers xsi:type="ecore:EClass" name="OwnedTransition2ownedTransition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FinalState2FinalState">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//FinalState"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//FinalState"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionSource2TransitionSource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OwnedFinalState2OwnedFinalState">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//StateMachine"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//StateMachine"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TransitionTarget2TransitionTarget">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/hsm.ecore#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/HSM2SM/metamodels/sm.ecore#//Transition"/>
   </eClassifiers>
 </ecore:EPackage>

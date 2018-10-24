@@ -1,7 +1,7 @@
 #using HSM2SM.*
 #using AttrCondDefLibrary.*
 
-#rule CompositeState2StateRule #with HSM2SM
+#rule CompositeState2StateRule #extends State2StateRule #with HSM2SM
 
 #source { 
 	hs:HSM.CompositeState 	
@@ -12,10 +12,7 @@
 }
 
 #correspondence {
-	++ hs2s:CompositeState2State {
-		#src->hs
-		#trg->s
-	}
+
 }
 
 #attributeConditions {

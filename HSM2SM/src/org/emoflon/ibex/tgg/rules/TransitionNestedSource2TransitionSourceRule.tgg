@@ -1,0 +1,29 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule TransitionNestedSource2TransitionSourceRule #extends TransitionSource2TransitionSourceRule #with HSM2SM
+
+#source { 
+	ht:HSM.Transition {
+		-source->hs
+	}
+	hs: HSM.State {
+		-owningCompositeState->hcs
+	}
+	hcs: HSM.CompositeState
+}
+
+#target {
+	t:SM.Transition {
+		-source->s
+	}
+	s: SM.State
+}
+
+#correspondence {
+
+}
+
+#attributeConditions {
+
+}

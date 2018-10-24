@@ -1,0 +1,34 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule TransitionTarget2TransitionTargetRule #with HSM2SM
+
+#source { 
+	ht:HSM.Transition {
+		-target->hs
+	}
+	hs: HSM.State
+}
+
+#target {
+	t:SM.Transition {
+		-target->s
+	}
+	s: SM.State
+}
+
+#correspondence {
+	++ ht2t:TransitionTarget2TransitionTarget {
+		#src->ht
+		#trg->t
+	}
+	
+	hs2s:State2State {
+		#src->hs
+		#trg->s
+	}
+}
+
+#attributeConditions {
+
+}

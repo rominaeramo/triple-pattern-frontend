@@ -1,0 +1,24 @@
+#using HSM2SM.*
+#using AttrCondDefLibrary.*
+
+#rule Transition2TransitionRule #with HSM2SM
+
+#source { 
+	hs:HSM.Transition
+}
+
+#target {
+	s:SM.Transition
+}
+
+#correspondence {
+	++ hs2s:Transition2Transition {
+		#src->hs
+		#trg->s
+	}
+}
+
+#attributeConditions {
+	eq_string(hs.trigger, s.trigger)
+	eq_string(hs.effect, s.effect)
+}
